@@ -1,0 +1,9 @@
+.list_container {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
+  outline: 1px solid;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

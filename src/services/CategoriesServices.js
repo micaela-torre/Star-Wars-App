@@ -1,12 +1,6 @@
 import { callApi } from './utilServices';
 
 export const CategoriesServices = (callService => {
-  const getPeople = () => {
-    return callService({
-      endpoint: 'people',
-    });
-  };
-
   const getPlanets = () => {
     return callService({
       endpoint: 'planets',
@@ -19,5 +13,5 @@ export const CategoriesServices = (callService => {
     });
   };
 
-  return { getPeople, getPlanets, getVehicles };
+  return { getPlanets, getVehicles };
 })(callApi);

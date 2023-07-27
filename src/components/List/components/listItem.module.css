@@ -1,0 +1,23 @@
+.list_item_container {
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.list_item_container:hover {
+  animation: pulse 1s infinite;
+}
+
+.list_item_name {
+  background-color: var(--white-primary);
+  color: var(--dark-grey-primary);
+  padding: 2px 4px;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

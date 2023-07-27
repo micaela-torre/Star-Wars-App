@@ -1,7 +1,14 @@
-import './App.css';
+import { SnackbarProvider } from 'notistack';
+import { SnackbarUtilitiesConfigutator } from './helpers/snackbar-manager';
+import Home from './pages/Home/Home';
 
 function App() {
-  return <div>App</div>;
+  return (
+    <SnackbarProvider>
+      <SnackbarUtilitiesConfigutator />
+      <Home />;
+    </SnackbarProvider>
+  );
 }
 
 export default App;
