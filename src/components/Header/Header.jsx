@@ -4,9 +4,12 @@ import styles from './header.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { PublicRoutes } from '../../models/routes';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [seeSearch, setSeeSearch] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className={styles.header_container}>
@@ -23,6 +26,11 @@ const Header = () => {
           <InputSearch placeholder="may the force be with you" type="search" name="search" label="search for Names" />
         ) : (
           <AiOutlineSearch onClick={() => setSeeSearch(prev => !prev)} size="25px" />
+        )}
+        {location?.search && (
+          <button className={styles.clean_filters_btn} onClick={() => navigate(PublicRoutes.HOME)}>
+            Clean filter
+          </button>
         )}
       </div>
     </div>

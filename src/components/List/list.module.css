@@ -16,6 +16,9 @@
   padding: 15px 0 0 9px;
   margin: 15px 0 0 15px;
 }
+.text_no_results_found{
+  text-align: center;
+}
 
 @media (min-width: 768px) {
   .list_container {
