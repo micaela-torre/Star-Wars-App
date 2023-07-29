@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { PublicRoutes } from './models/routes';
 import { RoutesWithNotFound } from './components/NotFound/RoutesWithNotFound';
 import Home from './pages/Home/Home';
-import { PageNotFound } from './components/NotFound/components/PageNotFound';
+import { Detail } from './pages/Detail/components/Detail';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <RoutesWithNotFound>
           <Route path={PublicRoutes.HOME} element={<Home />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path={PublicRoutes.DETAIL} element={<Detail />} />
         </RoutesWithNotFound>
       </BrowserRouter>
     </SnackbarProvider>

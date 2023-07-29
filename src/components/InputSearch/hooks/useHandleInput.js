@@ -9,9 +9,9 @@ export const useHandleInput = ({ handleChangeSearch }) => {
   const searchParams = useMemo(() => Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', ''), [location.search]);
   const [value, setValue] = useState(searchParams || '');
 
-  const navigateToList = () => {
-    navigate(`${PublicRoutes.HOME}?${new URLSearchParams({ search: value.replace('=', '') }).toString()}`);
-  };
+  const clearValue = () => navigate(PublicRoutes.HOME);
+
+  const navigateToList = () => navigate(`${PublicRoutes.HOME}?${new URLSearchParams({ search: value.replace('=', '') }).toString()}`);
 
   const handleChange = e => {
     const { value } = e.target;
@@ -29,5 +29,5 @@ export const useHandleInput = ({ handleChangeSearch }) => {
   useEffect(() => {
     setValue(searchParams || '');
   }, [searchParams]);
-  return { handleChange, handleSubmit, handleKeyPress, value, searchParams };
+  return { handleChange, handleSubmit, handleKeyPress, value, searchParams, clearValue };
 };

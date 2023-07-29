@@ -1,6 +1,5 @@
 .container {
   padding: 16px;
-  /* background-image: url('../../assets/star-wars-fondo.jpg'); */
   width: 100%;
   min-height: 100vh;
   background-position: center;
@@ -9,7 +8,3 @@
   background-attachment: fixed;
   background: black;
 }
-
-/* .include_background_image{
-
-} */

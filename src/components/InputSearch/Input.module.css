@@ -2,41 +2,55 @@
   display: flex;
   position: relative;
   text-transform: uppercase;
+  width: -webkit-fill-available;
 }
-
-.container_input input {
-  all: unset;
-  padding: 5px;
+.container_input > div {
   border-bottom: 1px solid var(--white-primary);
   border-left: 1px solid;
+  display: flex;
+  width: -webkit-fill-available;
+}
+.container_input > div > input {
+  all: unset;
+  padding: 5px;
   color: var(--white-primary);
-  width: 228px;
+  width: auto;
   margin: 6px;
   padding-right: 20px;
   background-color: rgba(0, 0, 0, 0.37);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
+input::selection,
+input:-internal-autofill-selected {
+  background-color: red;
+}
 .container_input > label,
-.container_input > svg {
+.container_input > div > svg {
   position: absolute;
 }
 .container_input > label {
   z-index: 2;
-  top: -18px;
-  left: 6px;
+  top: -25px;
   color: var(--white-primary);
   border-bottom: 1px solid var(--white-primary);
 }
 
-.container_input > svg {
+.container_input > div > svg {
   width: 20px;
   height: auto;
-  right: 12px;
+  right: 4px;
   top: 12px;
   cursor: pointer;
   color: var(--white-primary);
   z-index: 2;
 }
-.container_input input::placeholder {
+
+.container_input > div > .clearFilter {
+  right: 25px;
+  background-color: black;
+}
+.container_input > div > input::placeholder {
   color: var(--white-primary);
 }
