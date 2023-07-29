@@ -1,14 +1,59 @@
 .header_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  border-bottom: 1px solid white;
+  margin: 15px;
+  flex-wrap: wrap;
 }
 
+.header_menu,
+.header_extra_info {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.header_menu {
+  text-transform: uppercase;
+}
+.header_extra_info {
+  justify-content: flex-end;
+  margin-top: 15px;
+  min-width: 280px;
+}
+.header_menu > * {
+  text-decoration: none;
+  transition: scale 0.3s ease-in;
+}
+.header_menu > a:nth-of-type(2n) {
+  padding: 0 25px;
+}
+.header_menu > *:hover {
+  text-decoration: underline;
+  scale: 1.2;
+}
+.header_extra_info > svg {
+  cursor: pointer;
+}
 .header_logo {
   background-image: url('../../assets/star-wars-4.svg');
-  width: 150px;
+  width: 180px;
   min-height: 100px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+}
+
+@media (min-width: 500px) {
+  .header_logo {
+    width: 150px;
+  }
+  .header_container {
+    justify-content: space-between;
+  }
+  .header_menu,
+  .header_extra_info {
+    width: max-content;
+  }
 }

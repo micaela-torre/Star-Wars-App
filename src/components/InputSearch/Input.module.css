@@ -1,15 +1,16 @@
 .container_input {
   display: flex;
   position: relative;
+  text-transform: uppercase;
 }
 
 .container_input input {
   all: unset;
   padding: 5px;
-  border: 1px solid var(--white-primary);
-  border-radius: 5px;
+  border-bottom: 1px solid var(--white-primary);
+  border-left: 1px solid;
   color: var(--white-primary);
-  width: 300px;
+  width: 228px;
   margin: 6px;
   padding-right: 20px;
   background-color: rgba(0, 0, 0, 0.37);
@@ -21,10 +22,12 @@
 }
 .container_input > label {
   z-index: 2;
-  top: -11px;
-  left: 13px;
+  top: -18px;
+  left: 6px;
   color: var(--white-primary);
+  border-bottom: 1px solid var(--white-primary);
 }
+
 .container_input > svg {
   width: 20px;
   height: auto;

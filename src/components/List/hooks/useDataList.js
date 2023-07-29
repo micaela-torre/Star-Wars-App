@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SnackbarUtilities } from '../../../helpers/snackbar-manager';
 
 export const useDataList = ({ adapter, items, initialPage, setItems, service }) => {

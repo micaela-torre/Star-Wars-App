@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styles from './paginator.module.css';
-import Button from '../PrimaryButton/PrimaryButton';
+import Button from '../Button/Button';
 import { usePaginator } from './hooks/usePaginator';
 
 const Paginator = ({ page, initialPage, showPagination = true, onHandlerChangePagination, setPage }) => {

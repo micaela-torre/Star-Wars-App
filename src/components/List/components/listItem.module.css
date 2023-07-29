@@ -1,23 +1,50 @@
 .list_item_container {
   height: 300px;
-  background-position: center;
-  background-size: cover;
-  border-radius: 5px;
+  transition: background 0.8s, filter 0.8s;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 70px 63px -60px #000;
   cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  background-position: center top;
+  filter: grayscale(100%);
 }
 
+.border {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  transition: border 1s;
+  position: relative;
+}
+
+.list_item_container,
+.list_item_container_not_found {
+  background-size: 300px;
+  outline: 1px solid;
+}
 .list_item_container:hover {
-  animation: pulse 1s infinite;
+  background-size: 380px;
+  filter: grayscale(0);
+}
+.list_item_container:hover .list_item_name {
+  opacity: 1;
 }
 
-.list_item_name {
-  background-color: var(--white-primary);
-  color: var(--dark-grey-primary);
-  padding: 2px 4px;
-  font-weight: bold;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+.list_item_name,
+.photo_not_found {
+  color: #fff;
+  opacity: 0;
+  transition: opacity 1s;
+  text-transform: uppercase;
+  padding: 15px;
+  font-size: 19px;
+  text-shadow: 2px 0px black;
+}
+.photo_not_found {
+  opacity: 1;
+  text-align: center;
+}
+.text_not_found {
+  color: yellow;
+  font-size: 30px;
 }

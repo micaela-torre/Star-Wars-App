@@ -1,20 +1,31 @@
 .paginator_container,
-input,
+.paginator_container > input,
 .buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  padding: 5px;
-  background: yellow;
-  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+  padding: 10px;
+  background-color: transparent;
 }
 .buttons,
-input {
+.paginator_container > input {
   margin-top: 0;
   gap: 10px;
   cursor: pointer;
 }
-input:disabled {
+
+.paginator_container > input:hover,
+.buttons > button:hover {
+  text-decoration: underline;
+}
+.paginator_container > input:disabled {
   cursor: default;
+  color: #424242;
+  text-decoration: none;
+}
+.paginator_container {
+  border: 1px solid;
 }

@@ -3,7 +3,7 @@ import styles from './Input.module.css';
 import { useHandleInput } from './hooks/useHandleInput';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const InputSearch = ({ placeholder = 'Nombre/Fecha', label = '', type = 'text', name, handleChangeSearch, handleSubmitSearch }) => {
+const InputSearch = ({ placeholder = '', label = '', type = 'text', name, handleChangeSearch, handleSubmitSearch }) => {
   const { handleChange, handleSubmit, handleKeyPress, value } = useHandleInput({ handleChangeSearch, handleSubmitSearch });
 
   return (

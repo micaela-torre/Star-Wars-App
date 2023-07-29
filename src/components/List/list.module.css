@@ -1,9 +1,23 @@
+.list_section_container {
+  outline: 1px solid;
+  margin-top: 15px;
+}
+
 .list_container {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.527);
-  border-radius: 10px;
-  outline: 1px solid;
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin: 15px;
+}
+
+.list_section_container > h2 {
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .list_container {
+    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+  }
 }

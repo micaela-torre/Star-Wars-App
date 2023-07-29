@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { PublicRoutes } from '../../../models/routes';
 
 export const useHandleInput = ({ handleChangeSearch, handleSubmitSearch }) => {
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   // const searchParams = useMemo(() => Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', ''), [location.search]);
   const [value, setvalue] = useState('');
 
   const navigateToList = () => {
+    navigate(`${PublicRoutes.HOME}?${new URLSearchParams({ search: value.replace('=', '') }).toString()}`);
     // if (handleSubmitSearch) return handleSubmitSearch();
   };
 
@@ -24,10 +26,6 @@ export const useHandleInput = ({ handleChangeSearch, handleSubmitSearch }) => {
   const handleKeyPress = e => {
     if (e.key === 'Enter' && value.trim()) navigateToList();
   };
-
-  // useEffect(() => {
-  //   setvalue(searchParams || '');
-  // }, [searchParams]);
 
   return { handleChange, handleSubmit, handleKeyPress, value };
 };

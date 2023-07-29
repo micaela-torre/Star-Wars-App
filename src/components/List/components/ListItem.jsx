@@ -1,10 +1,17 @@
 import CHARACTERS_IMAGES from '../../../constants/people.images';
 import styles from './listItem.module.css';
+import Stars from '../../../assets/stars.png';
 
-const ListItem = ({ name, gender, films, url, homeworld, vehicles, itemId }) => {
+const ListItem = ({ name, gender, films, url, homeworld, vehicles, itemId, extra_info, children }) => {
+  const photo = CHARACTERS_IMAGES[name];
   return (
-    <div style={{ backgroundImage: `url(${CHARACTERS_IMAGES[itemId]})` }} className={styles.list_item_container}>
-      <p className={styles.list_item_name}>{name}</p>
+    <div style={{ backgroundImage: `url(${photo || Stars})` }} className={styles.list_item_container}>
+      <div className={styles.border}>
+        <p className={`${!photo ? styles['photo_not_found'] : styles['list_item_name']}`}>{name}</p>
+        {!photo && <p className={`${styles['text_not_found']} ${styles['photo_not_found']}`}>Photo not found</p>}
+        {extra_info}
+        {children}
+      </div>
     </div>
   );
 };
