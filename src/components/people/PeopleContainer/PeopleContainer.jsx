@@ -4,7 +4,7 @@ import { PeopleCategoriesServices } from '../services/people.service';
 import List from '../../List/List';
 import CHARACTERS_IMAGES from '../../../constants/people.images';
 
-const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow, showPagination }) => {
+const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow }) => {
   const { isDataLoading, list, setPage, page, error, handleCardCountChange, count } = useDataList({
     service: PeopleCategoriesServices.getPeople,
     initialPage,
@@ -12,15 +12,16 @@ const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow, showPagi
 
   return (
     <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={CHARACTERS_IMAGES} error={error}>
-      <Paginator
-        amountToShow={amountToShow}
-        count={count}
-        setPage={setPage}
-        page={page}
-        initialPage={initialPage}
-        onHandlerChangePagination={handleCardCountChange}
-        showPagination={showPagination}
-      />
+      {list?.length > 0 && (
+        <Paginator
+          amountToShow={amountToShow}
+          count={count}
+          setPage={setPage}
+          page={page}
+          initialPage={initialPage}
+          onHandlerChangePagination={handleCardCountChange}
+        />
+      )}
     </List>
   );
 };
