@@ -10,6 +10,7 @@ export const useDetailsInfo = ({ endpoint }) => {
   useEffect(() => {
     const getDetails = async () => {
       try {
+        setIsDataLoading(true)
         const res = await DetailsServices.getDetails(endpoint);
         const { url, created, edited, ...cleanData } = res.data;
 
@@ -32,5 +33,6 @@ export const useDetailsInfo = ({ endpoint }) => {
     };
     getDetails();
   }, [endpoint]);
+
   return { data, isDataLoading };
 };

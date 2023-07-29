@@ -9,7 +9,7 @@ export const transformKey = (key, value) => {
   if (typeof key === 'string' && value !== undefined) {
     return {
       key: key.replace(/[-_]/g, ' ').replace(/^\w/, c => c.toUpperCase()),
-      value: Array.isArray(value) ? value.join(', ') : value,
+      value: value,
     };
   }
   return { key: '', value: '' };
