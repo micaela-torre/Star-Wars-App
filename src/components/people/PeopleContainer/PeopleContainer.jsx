@@ -1,21 +1,29 @@
-import CHARACTERS_IMAGES from '../../../constants/people.images';
-import List from '../../List/List';
 import { useDataList } from '../../List/hooks/useDataList';
-import Spinner from '../../Spinner/Spinner';
+import Paginator from '../../Paginator/Paginator';
 import { PeopleCategoriesServices } from '../services/people.service';
+import List from '../../List/List';
+import CHARACTERS_IMAGES from '../../../constants/people.images';
 
-const PeopleContainer = ({ titleSection }) => {
-  const { isDataLoading, list, setPage, page, error } = useDataList({ service: PeopleCategoriesServices.getPeople, initialPage: 1 });
+const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow, showPagination, numberOfItems = 10 }) => {
+  const { isDataLoading, list, setPage, page, error, handleCardCountChange } = useDataList({
+    service: PeopleCategoriesServices.getPeople,
+    initialPage,
+    numberOfItems,
+  });
 
-  if (isDataLoading)
-    return (
-      <div style={{ height: '250px', textAlign: 'center' }}>
-        <Spinner />
-      </div>
-    );
-  if (error) return <p>Ha ocurrido un error, intente de nuevo más tarde o contacte a soporte.</p>;
-
-  return <List titleSection={titleSection} data={list} photoContainer={CHARACTERS_IMAGES} setPage={setPage} page={page} />;
+  return (
+    <Paginator
+      amountToShow={amountToShow}
+      numberOfItems={numberOfItems}
+      setPage={setPage}
+      page={page}
+      initialPage={initialPage}
+      showPagination={showPagination}
+      onHandlerChangePagination={handleCardCountChange}
+    >
+      <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={CHARACTERS_IMAGES} error={error} />
+    </Paginator>
+  );
 };
 
 export default PeopleContainer;

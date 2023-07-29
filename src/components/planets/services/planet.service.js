@@ -1,9 +1,11 @@
 import { callApi } from '../../../services/utilServices';
 
 export const PlanetCategoriesServices = (callService => {
-  const getPlanets = () => {
+  const getPlanets = ({ data, signal = null }) => {
     return callService({
       endpoint: 'planets',
+      params: data,
+      signal,
     });
   };
 
