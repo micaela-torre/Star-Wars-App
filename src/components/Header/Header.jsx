@@ -2,6 +2,8 @@ import { useState } from 'react';
 import InputSearch from '../InputSearch/InputSearch';
 import styles from './header.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { PublicRoutes } from '../../models/routes';
 
 const Header = () => {
   const [seeSearch, setSeeSearch] = useState(false);
@@ -13,7 +15,9 @@ const Header = () => {
         <a href="#Planets">planets</a>
         <a href="#Vehicles">vehicles</a>
       </nav>
-      <div className={styles.header_logo}></div>
+      <Link to={PublicRoutes.HOME}>
+        <div className={styles.header_logo}></div>
+      </Link>
       <div className={styles.header_extra_info}>
         {seeSearch ? (
           <InputSearch placeholder="may the force be with you" type="search" name="search" label="search for Names" />

@@ -13,7 +13,8 @@
 }
 
 .list_section_container > h2 {
-  padding: 15px;
+  padding: 15px 0 0 9px;
+  margin: 15px 0 0 15px;
 }
 
 @media (min-width: 768px) {

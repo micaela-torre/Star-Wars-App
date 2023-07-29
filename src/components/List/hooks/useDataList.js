@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { SnackbarUtilities } from '../../../helpers/snackbar-manager';
 
-export const useDataList = ({ adapter, items, initialPage, numberOfItems, filters, setItems, service }) => {
+export const useDataList = ({ adapter, items, initialPage, filters, setItems, service }) => {
   const [list, setList] = useState(items);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(initialPage);
+  const [count, setCount] = useState(0);
   const abortController = new AbortController();
   const signal = abortController.signal;
   const listRef = useRef();
@@ -20,7 +21,9 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, filter
         if (adapter) items = adapter(results?.data?.results);
         if (setItems) setItems(items);
         listRef.current = items || [];
-        if (Array.isArray(items)) items = items?.slice(0, numberOfItems);
+        let newCount = 10;
+        setCount(newCount);
+        if (Array.isArray(items)) items = items?.slice(0, newCount);
         setList(items);
       } catch (e) {
         setError(e);
@@ -46,5 +49,5 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, filter
     setList(cloneList.slice(0, count));
   };
 
-  return { isDataLoading, list, setPage, page, error, handleCardCountChange };
+  return { isDataLoading, list, setPage, page, error, handleCardCountChange, count };
 };
