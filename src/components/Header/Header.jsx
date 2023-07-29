@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import InputSearch from '../InputSearch/InputSearch';
 import styles from './header.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -10,9 +9,9 @@ const Header = () => {
   return (
     <div className={styles.header_container}>
       <nav className={styles.header_menu}>
-        <Link>characters</Link>
-        <Link>vehicles</Link>
-        <Link>planets</Link>
+        <a href="#Characters">characters</a>
+        <a href="#Planets">planets</a>
+        <a href="#Vehicles">vehicles</a>
       </nav>
       <div className={styles.header_logo}></div>
       <div className={styles.header_extra_info}>

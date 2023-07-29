@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SnackbarUtilities } from '../../../helpers/snackbar-manager';
 
-export const useDataList = ({ adapter, items, initialPage, setItems, service }) => {
+export const useDataList = ({ adapter, items, initialPage, setItems, service, filters }) => {
   const [list, setList] = useState(items);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ export const useDataList = ({ adapter, items, initialPage, setItems, service }) 
       try {
         if (signal.aborted) return null;
         setIsDataLoading(true);
-        const results = await service();
+        const results = await service(filters);
         let items = results?.data?.results;
         if (adapter) items = adapter(results?.data?.results);
         if (setItems) setItems(items);
@@ -37,5 +37,5 @@ export const useDataList = ({ adapter, items, initialPage, setItems, service }) 
     //eslint-disable-next-line
   }, [page]);
 
-  return { isDataLoading, list, setPage, page, error };
+  return { isDataLoading, list, setPage, page, error, setList };
 };

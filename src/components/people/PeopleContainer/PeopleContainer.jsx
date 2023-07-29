@@ -1,3 +1,4 @@
+import CHARACTERS_IMAGES from '../../../constants/people.images';
 import List from '../../List/List';
 import { useDataList } from '../../List/hooks/useDataList';
 import Spinner from '../../Spinner/Spinner';
@@ -14,7 +15,7 @@ const PeopleContainer = ({ titleSection }) => {
     );
   if (error) return <p>Ha ocurrido un error, intente de nuevo más tarde o contacte a soporte.</p>;
 
-  return <List titleSection={titleSection} data={list} setPage={setPage} page={page} />;
+  return <List titleSection={titleSection} data={list} photoContainer={CHARACTERS_IMAGES} setPage={setPage} page={page} />;
 };
 
 export default PeopleContainer;

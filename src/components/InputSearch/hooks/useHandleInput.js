@@ -1,16 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../../../models/routes';
 
-export const useHandleInput = ({ handleChangeSearch, handleSubmitSearch }) => {
+export const useHandleInput = ({ handleChangeSearch }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  // const searchParams = useMemo(() => Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', ''), [location.search]);
-  const [value, setvalue] = useState('');
+  const searchParams = useMemo(() => Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', ''), [location.search]);
+  const [value, setvalue] = useState(searchParams || '');
 
   const navigateToList = () => {
     navigate(`${PublicRoutes.HOME}?${new URLSearchParams({ search: value.replace('=', '') }).toString()}`);
-    // if (handleSubmitSearch) return handleSubmitSearch();
   };
 
   const handleChange = e => {

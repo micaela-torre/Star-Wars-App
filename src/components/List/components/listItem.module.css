@@ -5,7 +5,9 @@
   background: #000;
   box-shadow: 0 70px 63px -60px #000;
   cursor: pointer;
-  background-position: center top;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   filter: grayscale(100%);
 }
 
@@ -47,4 +49,7 @@
 .text_not_found {
   color: yellow;
   font-size: 30px;
+}
+.list_item_see_more {
+  outline: 1px solid red;
 }
