@@ -8,7 +8,9 @@
   width: max-content;
   font-size: 16px;
   text-align: center;
-  background-color: transparent;
+
+  background-color: var(--dark-grey-primary);
+  color: var(--grey-primary);
 }
 
 .action:active {
@@ -22,7 +24,7 @@
 }
 :is(.container, .action, .text, .secondary):disabled:hover {
   background-color: transparent;
-  color: var(--dark-grey-primary);
+  color: var(--grey-primary);
 }
 
 .selected {
@@ -79,10 +81,9 @@
 
 .tooltip {
   visibility: hidden;
-  background-color: var(--grey-primary);
+  outline: 1px solid;
   color: var(--white-primary);
   text-align: center;
-  border-radius: 4px;
   padding: 5px;
   position: absolute;
   top: -40px;
@@ -92,14 +93,16 @@
   transition: opacity 0.3s;
   width: max-content;
 }
+
 .tooltip::after {
   position: absolute;
   content: '▼';
   width: 19%;
-  left: 40%;
-  bottom: -40%;
-  color: var(--grey-primary);
+  left: 37%;
+  bottom: -50%;
+  color: white;
 }
+
 .tooltip_container:hover .tooltip {
   visibility: visible;
   opacity: 1;

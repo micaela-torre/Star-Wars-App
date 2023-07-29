@@ -8,7 +8,7 @@
 }
 .card_details_container > * {
   width: 50%;
-  height: 80vh;
+  min-height: 80vh;
 }
 div.card_details_photo {
   background-position: center;

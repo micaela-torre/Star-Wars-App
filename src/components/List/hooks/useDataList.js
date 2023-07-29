@@ -14,37 +14,47 @@ export const useDataList = ({ adapter, items, initialPage, setItems, service }) 
   const signal = abortController.signal;
   const listRef = useRef();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (signal.aborted) return null;
-        setIsDataLoading(true);
-        const results = await service({ data: { page, search }, signal });
-        let items = results?.data?.results;
-        if (adapter) items = adapter(results?.data?.results);
-        if (setItems) setItems(items);
-        listRef.current = items || [];
-        let newCount = 10;
-        setCount(newCount);
-        if (Array.isArray(items)) items = items?.slice(0, newCount);
-        setList(items);
-      } catch (e) {
-        setError(e);
-        SnackbarUtilities.error('Ha ocurrido un error, intente de nuevo más tarde.');
-        console.error(e);
-      } finally {
-        abortController.abort();
-        if (signal.aborted) setIsDataLoading(false);
-      }
-    };
+  const fetchData = async params => {
+    try {
+      if (signal.aborted) return null;
+      setIsDataLoading(true);
+      const results = await service({ data: params, signal });
+      let items = results?.data?.results || [];
+      if (adapter) items = adapter(items);
+      if (setItems) setItems(items);
+      listRef.current = items || [];
+      let newCount = items?.length;
+      setCount(newCount);
+      if (Array.isArray(items)) items = items?.slice(0, newCount);
+      setList(items);
+    } catch (e) {
+      setError(e);
+      SnackbarUtilities.error('Ha ocurrido un error, intente de nuevo más tarde.');
+      console.error(e);
+    } finally {
+      abortController.abort();
+      if (signal.aborted) setIsDataLoading(false);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    if (page === initialPage) return;
+    fetchData({ page });
 
     return () => {
       abortController.abort();
     };
     //eslint-disable-next-line
-  }, [page, search]);
+  }, [page]);
+
+  useEffect(() => {
+    fetchData({ search });
+
+    return () => {
+      abortController.abort();
+    };
+    //eslint-disable-next-line
+  }, [search]);
 
   const handleCardCountChange = count => {
     if (!count && !listRef?.current?.length) return null;

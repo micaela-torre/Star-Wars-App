@@ -1,9 +1,10 @@
-import React, { memo } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { memo, useMemo } from 'react';
 import styles from './paginator.module.css';
 import Button from '../Button';
 import { usePaginator } from './hooks/usePaginator';
 
-const Paginator = ({ page, initialPage, count, amountToShow = [3, 5, 10], onHandlerChangePagination, setPage, showPagination = true }) => {
+const Paginator = ({ page, initialPage, count, amountToShow = [3, 5, 10], onHandlerChangePagination, setPage }) => {
   const { handleChangePaginator, itemPerPage, initialPagePaginator, handleChangeOfNumberOfItemsOnScreen, itemActive } = usePaginator({
     page,
     initialPage,
@@ -12,6 +13,7 @@ const Paginator = ({ page, initialPage, count, amountToShow = [3, 5, 10], onHand
     count,
   });
 
+  const showPagination = useMemo(() => count > initialPage, [count]);
   if (!showPagination) return null;
 
   return (
