@@ -10,6 +10,7 @@ const List = ({ data, titleSection, isDataLoading, error, photoContainer }) => {
   return (
     <section id={titleSection} className={styles.list_section_container}>
       <h2>{titleSection}</h2>
+
       <div className={styles.list_container}>
         {data?.map((item, index) => (
           <ListItem key={`List_${titleSection}_${index}`} {...item} photoContainer={photoContainer} />

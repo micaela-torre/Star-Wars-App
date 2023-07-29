@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SnackbarUtilities } from '../../../helpers/snackbar-manager';
 
-export const useDataList = ({ adapter, items, initialPage, numberOfItems, filters, setItems, service }) => {
+export const useDataList = ({ adapter, items, initialPage, numberOfItems, setItems, service }) => {
+  const location = useLocation();
+  const search = Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', '');
   const [list, setList] = useState(items);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,7 +18,7 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, filter
       try {
         if (signal.aborted) return null;
         setIsDataLoading(true);
-        const results = await service({ data: { ...filters, page }, signal });
+        const results = await service({ data: { page, search }, signal });
         let items = results?.data?.results;
         if (adapter) items = adapter(results?.data?.results);
         if (setItems) setItems(items);
@@ -38,7 +41,7 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, filter
       abortController.abort();
     };
     //eslint-disable-next-line
-  }, [page]);
+  }, [page, search]);
 
   const handleCardCountChange = count => {
     if (!count && !listRef?.current?.length) return null;

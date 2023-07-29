@@ -10,7 +10,6 @@ const ContainerPlanets = ({ titleSection, initialPage = 1, amountToShow, showPag
     initialPage,
     numberOfItems,
   });
-
   return (
     <Paginator
       amountToShow={amountToShow}
