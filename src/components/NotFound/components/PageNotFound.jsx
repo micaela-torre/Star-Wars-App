@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Button from '../../Button/Button';
+import Button from '../../Button';
 // import PageNotFoundImage from '../../../assets/compu.svg';
 import { PublicRoutes } from '../../../models/routes';
 

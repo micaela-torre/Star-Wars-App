@@ -1,6 +1,6 @@
 .paginator_container,
 .paginator_container > input,
-.buttons {
+.container_buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,15 +10,14 @@
   padding: 10px;
   background-color: transparent;
 }
-.buttons,
+
 .paginator_container > input {
   margin-top: 0;
   gap: 10px;
   cursor: pointer;
 }
 
-.paginator_container > input:hover,
-.buttons > button:hover {
+.paginator_container > input:hover {
   text-decoration: underline;
 }
 .paginator_container > input:disabled {
