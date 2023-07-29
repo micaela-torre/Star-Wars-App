@@ -1,0 +1,19 @@
+.card_details_container {
+  outline: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  gap: 1rem;
+}
+.card_details_container > * {
+  width: 50%;
+  height: 80vh;
+}
+div.card_details_photo {
+  background-position: center;
+  background-size: cover;
+}
+.card_details_container p {
+  margin-bottom: 10px;
+}
