@@ -4,25 +4,24 @@ import { useDataList } from '../../List/hooks/useDataList';
 import Paginator from '../../Paginator/Paginator';
 import { VehicleCategoriesServices } from '../services/vehicles.services';
 
-const ContainerVehicles = ({ titleSection, initialPage = 1, amountToShow, showPagination, numberOfItems = 10 }) => {
-  const { isDataLoading, list, setPage, page, error, handleCardCountChange } = useDataList({
+const ContainerVehicles = ({ titleSection, initialPage = 1, amountToShow, showPagination }) => {
+  const { isDataLoading, list, setPage, page, error, handleCardCountChange, count } = useDataList({
     service: VehicleCategoriesServices.getVehicle,
     initialPage,
-    numberOfItems,
   });
 
   return (
-    <Paginator
-      amountToShow={amountToShow}
-      numberOfItems={numberOfItems}
-      setPage={setPage}
-      page={page}
-      initialPage={initialPage}
-      showPagination={showPagination}
-      onHandlerChangePagination={handleCardCountChange}
-    >
-      <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={VEHICLES_IMAGES} error={error} />
-    </Paginator>
+    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={VEHICLES_IMAGES} error={error}>
+      <Paginator
+        amountToShow={amountToShow}
+        count={count}
+        setPage={setPage}
+        page={page}
+        initialPage={initialPage}
+        onHandlerChangePagination={handleCardCountChange}
+        showPagination={showPagination}
+      />
+    </List>
   );
 };
 

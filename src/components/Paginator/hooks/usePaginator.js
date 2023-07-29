@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 
-export const usePaginator = ({ initialPage, page, setPage, onHandlerChangePagination, numberOfItems }) => {
+export const usePaginator = ({ initialPage, page, setPage, onHandlerChangePagination, count }) => {
   const initialPagePaginator = useRef(initialPage);
   const [itemPerPage, setItemPerPage] = useState(page);
-  const [itemActive, setItemActive] = useState(numberOfItems);
+  const [itemActive, setItemActive] = useState(count);
 
   const handleChangePaginator = e => {
     const { name } = e.target;

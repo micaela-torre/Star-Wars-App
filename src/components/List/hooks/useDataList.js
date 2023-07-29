@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SnackbarUtilities } from '../../../helpers/snackbar-manager';
 
-export const useDataList = ({ adapter, items, initialPage, numberOfItems, setItems, service }) => {
+export const useDataList = ({ adapter, items, initialPage, setItems, service }) => {
   const location = useLocation();
   const search = Object.fromEntries(new URLSearchParams(location.search))?.search?.replace('=', '');
   const [list, setList] = useState(items);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(initialPage);
+  const [count, setCount] = useState(0);
   const abortController = new AbortController();
   const signal = abortController.signal;
   const listRef = useRef();
@@ -23,7 +24,9 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, setIte
         if (adapter) items = adapter(results?.data?.results);
         if (setItems) setItems(items);
         listRef.current = items || [];
-        if (Array.isArray(items)) items = items?.slice(0, numberOfItems);
+        let newCount = 10;
+        setCount(newCount);
+        if (Array.isArray(items)) items = items?.slice(0, newCount);
         setList(items);
       } catch (e) {
         setError(e);
@@ -49,5 +52,5 @@ export const useDataList = ({ adapter, items, initialPage, numberOfItems, setIte
     setList(cloneList.slice(0, count));
   };
 
-  return { isDataLoading, list, setPage, page, error, handleCardCountChange };
+  return { isDataLoading, list, setPage, page, error, handleCardCountChange, count };
 };
