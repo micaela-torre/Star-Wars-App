@@ -30,3 +30,6 @@ div.card_details_photo {
     min-height: 80vh;
   }
 }
+.list_ul ul {
+  margin-left: 17px;
+}

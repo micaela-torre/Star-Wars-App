@@ -1,8 +1,7 @@
 import styles from './listItem.module.css';
 import Stars from '../../../assets/stars.png';
 
-const ListItem = ({ name = '', url, photoContainer, handlerSeeMoreInfo, children }) => {
-  const photo = photoContainer?.[name];
+const ListItem = ({ name = '', url, photoContainer, handlerSeeMoreInfo, photo, children }) => {
   const handleClick = () => {
     if (handlerSeeMoreInfo) handlerSeeMoreInfo(url, name);
   };

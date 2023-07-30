@@ -1,4 +1,3 @@
-import { PLANETS_IMAGES } from '../../../constants/planets.images';
 import List from '../../List/List';
 import { useDataList } from '../../List/hooks/useDataList';
 import Paginator from '../../Paginator/Paginator';
@@ -9,9 +8,9 @@ const ContainerPlanets = ({ titleSection, initialPage = 1, amountToShow }) => {
     service: PlanetCategoriesServices.getPlanets,
     initialPage,
   });
-  
+
   return (
-    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={PLANETS_IMAGES} error={error}>
+    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} error={error}>
       {list?.length > 0 && (
         <Paginator
           amountToShow={amountToShow}

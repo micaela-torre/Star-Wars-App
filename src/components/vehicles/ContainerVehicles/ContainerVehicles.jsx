@@ -1,4 +1,3 @@
-import { VEHICLES_IMAGES } from '../../../constants/vehicles.images';
 import List from '../../List/List';
 import { useDataList } from '../../List/hooks/useDataList';
 import Paginator from '../../Paginator/Paginator';
@@ -11,7 +10,7 @@ const ContainerVehicles = ({ titleSection, initialPage = 1, amountToShow }) => {
   });
 
   return (
-    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={VEHICLES_IMAGES} error={error}>
+    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} error={error}>
       {list?.length > 0 && (
         <Paginator
           amountToShow={amountToShow}

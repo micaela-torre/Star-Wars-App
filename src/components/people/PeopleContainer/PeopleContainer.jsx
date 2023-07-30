@@ -2,7 +2,6 @@ import { useDataList } from '../../List/hooks/useDataList';
 import Paginator from '../../Paginator/Paginator';
 import { PeopleCategoriesServices } from '../services/people.service';
 import List from '../../List/List';
-import CHARACTERS_IMAGES from '../../../constants/people.images';
 
 const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow }) => {
   const { isDataLoading, list, setPage, page, error, handleCardCountChange, count } = useDataList({
@@ -11,7 +10,7 @@ const PeopleContainer = ({ titleSection, initialPage = 1, amountToShow }) => {
   });
 
   return (
-    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} photoContainer={CHARACTERS_IMAGES} error={error}>
+    <List titleSection={titleSection} data={list} isDataLoading={isDataLoading} error={error}>
       {list?.length > 0 && (
         <Paginator
           amountToShow={amountToShow}

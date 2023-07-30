@@ -13,8 +13,9 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
     if (key === 'Residents') {
       //existe un array, y en ese array, todos son https? hacer recursividad para funcion y componente
       return (
-        <React.Fragment key={key}>
-          Residentes
+        <div key={key} className={styles.list_ul}>
+          <h4>Residentes</h4>
+
           <ul>
             {value?.map((url, index) => {
               const { section, id } = formatUrl(url);
@@ -22,7 +23,7 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
               const regexSection = /\/api\/([^/]+)/;
               const match = url.match(regexSection);
               const matchNum = url.match(regexNum);
-              console.log(match[1], matchNum[2]);
+              // console.log(match[1], matchNum[2]);
               return (
                 <li key={index}>
                   <Link to={`${PublicRoutes.DETAILS}${section}/${id}/`}>See resitent {id}</Link>
@@ -30,7 +31,7 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
               );
             })}
           </ul>
-        </React.Fragment>
+        </div>
       );
     }
     return (
@@ -42,10 +43,9 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
 
   return (
     <div className={styles.card_details_container}>
-      <ListItem name="">
+      <ListItem name="" photo={photo}>
         <div>{data?.map(renderDetail)}</div>
       </ListItem>
-      {/* {photo && <div className={styles.card_details_photo} style={{ backgroundImage: `url(${photo})` }}></div>} */}
     </div>
   );
 };
