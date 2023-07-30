@@ -1,6 +1,6 @@
 import { callApi } from '../../../services/utilServices';
 
-export const VehicleCategoriesServices = (callService => {
+export const StarShipsServices = (callService => {
   const getVehicle = ({ data, signal = null }) => {
     return callService({
       endpoint: 'starships',
