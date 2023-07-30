@@ -14,21 +14,21 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
         <React.Fragment key={key}>
           Residentes
           <ul>
-          {value?.map((url, index) => {
-            const { section, id } = formatUrl(url);
-            const regexNum = /\/api\/([^/]+)\/(\d+)\/?/;
-            const regexSection = /\/api\/([^/]+)/;
-const match = url.match(regexSection);
-const matchNum = url.match(regexNum);
-console.log(match[1], matchNum[2])
-            return (
+            {value?.map((url, index) => {
+              const { section, id } = formatUrl(url);
+              const regexNum = /\/api\/([^/]+)\/(\d+)\/?/;
+              const regexSection = /\/api\/([^/]+)/;
+              const match = url.match(regexSection);
+              const matchNum = url.match(regexNum);
+              console.log(match[1], matchNum[2]);
+              return (
                 <li key={index}>
                   <Link to={`${PublicRoutes.DETAILS}${section}/${id}/`}>See resitent {id}</Link>
                 </li>
-            );
-          })}
+              );
+            })}
           </ul>
-        </React.Fragment >
+        </React.Fragment>
       );
     }
     return (
