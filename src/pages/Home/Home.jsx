@@ -11,7 +11,7 @@ const Home = () => {
       <main style={{ minHeight: '75vh' }}>
         <PeopleContainer titleSection="Characters" />
         <ContainerPlanets titleSection="Planets" />
-        <ContainerVehicles titleSection="Vehicles" />
+        <ContainerVehicles titleSection="Starships" />
       </main>
       <ScrollToTopButton />
     </>
