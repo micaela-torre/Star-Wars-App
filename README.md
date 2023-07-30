@@ -24,7 +24,7 @@ La aplicación utiliza las siguientes librerías:
 Clona este repositorio en tu máquina local:
 
 ```
-git clone https://github.com/micaela-torre/rick-and-morty.git 
+https://github.com/micaela-torre/Prueba-Tecnica-Lisit.git
 ```
 Instala las dependencias utilizando npm:
 
