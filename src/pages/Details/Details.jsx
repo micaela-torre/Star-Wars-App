@@ -1,21 +1,18 @@
 import { useParams } from 'react-router-dom';
 import { useDetailsInfo } from './hooks/useDetailsInfo';
 import CardDetails from './components/CardDetails/CardDetails';
-import CHARACTERS_IMAGES from '../../constants/people.images';
-import { PLANETS_IMAGES } from '../../constants/planets.images';
-import { VEHICLES_IMAGES } from '../../constants/vehicles.images';
 import { CustomDetailHeader } from './components/DetailHeader';
+import { IMAGE_LIST } from '../../constants';
 
 const Details = () => {
   const { section, id, name } = useParams();
   const endpoint = `${section}/${id}`;
   const { data, isDataLoading } = useDetailsInfo({ endpoint });
-  const photo = { ...CHARACTERS_IMAGES, ...VEHICLES_IMAGES, ...PLANETS_IMAGES };
 
   return (
     <>
       <CustomDetailHeader />
-      <CardDetails data={data} photo={photo[name]} isDataLoading={isDataLoading} />
+      <CardDetails data={data} photo={IMAGE_LIST[name]} isDataLoading={isDataLoading} />
     </>
   );
 };

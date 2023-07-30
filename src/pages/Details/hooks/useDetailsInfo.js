@@ -12,6 +12,7 @@ export const useDetailsInfo = ({ endpoint }) => {
       try {
         setIsDataLoading(true);
         const res = await DetailsServices.getDetails(endpoint);
+        console.log(res);
         const { url, created, edited, ...cleanData } = res?.data || {};
 
         const transformedData = Object.entries(cleanData)
