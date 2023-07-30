@@ -12,6 +12,7 @@ const List = ({ data, titleSection, isDataLoading, error, photoContainer, childr
   if (error) return <p>Ha ocurrido un error, intente de nuevo más tarde o contacte a soporte.</p>;
 
   const handlerSeeMoreInfo = (url, name) => {
+    if (!url) return null;
     const { section, id } = formatUrl(url);
     navigate(`${PublicRoutes.DETAILS}${section}/${id}/${name}`);
   };

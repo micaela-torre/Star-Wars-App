@@ -4,11 +4,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  gap: 1rem;
+  flex-wrap: wrap;
 }
 .card_details_container > * {
-  width: 50%;
-  min-height: 80vh;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 15px;
+}
+
+.card_details_container > div:first-of-type {
+  background-size: cover;
 }
 div.card_details_photo {
   background-position: center;
@@ -16,4 +23,10 @@ div.card_details_photo {
 }
 .card_details_container p {
   margin-bottom: 10px;
+}
+@media (min-width: 500px) {
+  .card_details_container > * {
+    width: 50%;
+    min-height: 80vh;
+  }
 }

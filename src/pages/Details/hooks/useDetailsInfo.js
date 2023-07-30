@@ -10,9 +10,9 @@ export const useDetailsInfo = ({ endpoint }) => {
   useEffect(() => {
     const getDetails = async () => {
       try {
-        setIsDataLoading(true)
+        setIsDataLoading(true);
         const res = await DetailsServices.getDetails(endpoint);
-        const { url, created, edited, ...cleanData } = res.data;
+        const { url, created, edited, ...cleanData } = res?.data || {};
 
         const transformedData = Object.entries(cleanData)
           .filter(([key, value]) => {
@@ -26,9 +26,10 @@ export const useDetailsInfo = ({ endpoint }) => {
           });
 
         setData(transformedData);
-        setIsDataLoading(false);
       } catch (e) {
         console.log(e);
+      } finally {
+        setIsDataLoading(false);
       }
     };
     getDetails();
