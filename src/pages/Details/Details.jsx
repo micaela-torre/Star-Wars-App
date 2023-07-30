@@ -10,12 +10,12 @@ const Details = () => {
   const { section, id, name } = useParams();
   const endpoint = `${section}/${id}`;
   const { data, isDataLoading } = useDetailsInfo({ endpoint });
-  const photo = CHARACTERS_IMAGES[name] || VEHICLES_IMAGES[name] || PLANETS_IMAGES[name];
+  const photo = { ...CHARACTERS_IMAGES, ...VEHICLES_IMAGES, ...PLANETS_IMAGES };
 
   return (
     <>
       <CustomDetailHeader />
-      <CardDetails data={data} photo={photo} isDataLoading={isDataLoading} />
+      <CardDetails data={data} photo={photo[name]} isDataLoading={isDataLoading} />
     </>
   );
 };
