@@ -1,4 +1,4 @@
-# Star-Wars-App
+# Star Wars App
  
 Este es una aplicación web desarrollada con React que muestra tres categorías de la serie Star Wars, obtenidos a través de la API (https://swapi.dev/api/). 
 ### Categorías : 
