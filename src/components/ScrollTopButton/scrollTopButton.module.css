@@ -12,6 +12,7 @@
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 2;
 }
 
 .scroll_to_top_button.visible {
@@ -21,7 +22,6 @@
 .scroll_to_top_button:hover {
   animation: pulse 1s infinite;
 }
-
 
 @keyframes pulse {
   0% {

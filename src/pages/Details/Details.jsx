@@ -12,7 +12,7 @@ const Details = () => {
   return (
     <>
       <CustomDetailHeader />
-      <CardDetails data={data} photo={IMAGE_LIST[name]} isDataLoading={isDataLoading} />
+      <CardDetails data={data} photo={IMAGE_LIST[name || data?.name]} isDataLoading={isDataLoading} />
     </>
   );
 };
