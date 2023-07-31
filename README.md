@@ -24,7 +24,7 @@ La aplicación utiliza las siguientes librerías:
 Clona este repositorio en tu máquina local:
 
 ```
-https://github.com/micaela-torre/Prueba-Tecnica-Lisit.git
+https://github.com/micaela-torre/Star-Wars-App.git
 ```
 Instala las dependencias utilizando npm:
 
