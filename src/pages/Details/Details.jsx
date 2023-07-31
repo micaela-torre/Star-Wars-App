@@ -10,10 +10,11 @@ const Details = () => {
   const endpoint = `${section}/${id}`;
   const { data, isDataLoading } = useDetailsInfo({ endpoint });
   useSEOHeadData({ title: isDataLoading ? 'Loading..' : name || 'Star Wars' });
+
   return (
     <>
       <CustomDetailHeader />
-      <CardDetails data={data} photo={IMAGE_LIST[name]} isDataLoading={isDataLoading} />
+      <CardDetails data={data} photo={IMAGE_LIST[name || data?.name]} isDataLoading={isDataLoading} />
     </>
   );
 };

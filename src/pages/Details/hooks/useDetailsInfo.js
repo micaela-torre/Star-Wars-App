@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import adaptApiInformation from '../adapter.detail';
 import { DetailsServices } from '../services/details.service';
-import { transformKey } from '../../../utils/functions';
 
 export const useDetailsInfo = ({ endpoint }) => {
   const [data, setData] = useState();
@@ -13,23 +12,13 @@ export const useDetailsInfo = ({ endpoint }) => {
         setIsDataLoading(true);
         const res = await DetailsServices.getDetails(endpoint);
         const { url, created, edited, ...cleanData } = res?.data || {};
+        const dataAdapted = adaptApiInformation(cleanData);
 
-        const transformedData = Object.entries(cleanData)
-          .filter(([key, value]) => {
-            if (Array.isArray(value)) {
-              return value.length > 0;
-            }
-            return typeof value === 'string' && value.trim() !== '';
-          })
-          .map(([key, value]) => {
-            return transformKey(key, value);
-          });
-
-        setData(transformedData);
+        setData({ name: cleanData?.name || '', details: dataAdapted });
       } catch (e) {
-        console.log(e);
+        console.error(e);
       } finally {
-        setIsDataLoading(false);
+        // setIsDataLoading(false);
       }
     };
     getDetails();

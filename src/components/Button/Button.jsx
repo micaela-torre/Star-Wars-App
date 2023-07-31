@@ -18,6 +18,7 @@ const Button = ({ children, variant = 'primary', onClick, selected, customClasss
   return (
     <div className={styles.tooltip_container}>
       <button
+        name={toolTip}
         onClick={onClick}
         className={`${styles['container']} ${styles[variant]} ${customClasss ? customClasss : ''} ${styles[selected ? 'selected' : '']}`}
         style={{ ...(sx || {}) }}

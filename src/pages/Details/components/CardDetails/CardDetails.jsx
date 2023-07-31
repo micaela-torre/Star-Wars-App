@@ -1,10 +1,8 @@
 import React from 'react';
 import Spinner from '../../../../components/Spinner/Spinner';
 import styles from '../cardDetails.module.css';
-import { Link } from 'react-router-dom';
-import { PublicRoutes } from '../../../../models/routes';
-import { formatUrl } from '../../../../utils/functions';
 import ListItem from '../../../../components/List/components/ListItem';
+import { RenderDetail } from '../RenderDetail/RenderDetail';
 
 const CardDetails = ({ isDataLoading, data, photo }) => {
   if (isDataLoading)
@@ -14,42 +12,18 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
       </div>
     );
 
-  const renderDetail = ({ key, value }) => {
-    if (key === 'Residents') {
-      //existe un array, y en ese array, todos son https? hacer recursividad para funcion y componente
-      return (
-        <div key={key} className={styles.list_ul}>
-          <h4>Residentes</h4>
-
-          <ul>
-            {value?.map((url, index) => {
-              const { section, id } = formatUrl(url);
-              const regexNum = /\/api\/([^/]+)\/(\d+)\/?/;
-              const regexSection = /\/api\/([^/]+)/;
-              const match = url.match(regexSection);
-              const matchNum = url.match(regexNum);
-              // console.log(match[1], matchNum[2]);
-              return (
-                <li key={index}>
-                  <Link to={`${PublicRoutes.DETAILS}${section}/${id}/`}>See resitent {id}</Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      );
-    }
-    return (
-      <p key={key}>
-        {key} : {value}
-      </p>
-    );
-  };
+  if (!data || !data?.details?.length) return <p style={{ textAlign: 'center' }}>There is no information</p>;
 
   return (
     <div className={styles.card_details_container}>
-      <ListItem name="" photo={photo}>
-        <div>{data?.map(renderDetail)}</div>
+      <ListItem name={data?.name} photo={photo}>
+        <div className={styles.container_items}>
+          {data?.details?.map((item, index) => (
+            <div key={`CardDetails_${index}`}>
+              <h4>{item.label || ''}</h4> : {RenderDetail(item)}
+            </div>
+          ))}
+        </div>
       </ListItem>
     </div>
   );

@@ -2,9 +2,16 @@
   padding: 16px;
   width: 100%;
   min-height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
   background: black;
+}
+
+footer {
+  width: 99vw;
+  text-align: center;
+  margin: 15px 0;
+  position: fixed;
+  bottom: -16px;
+  background-color: black;
+  padding: 15px;
+  margin-left: -15px;
 }
