@@ -6,9 +6,11 @@ import { formatUrl } from '../../utils/functions';
 import { useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../../models/routes';
 import { IMAGE_LIST } from '../../constants';
+import { useSEOHeadData } from '../../hooks/useSEOHeadData';
 
 const List = ({ data, titleSection, isDataLoading, error, children }) => {
   const navigate = useNavigate();
+  useSEOHeadData({ title: isDataLoading ? 'Loading...' : 'Welcome' });
 
   const handlerSeeMoreInfo = (url, name) => {
     if (!url) return null;
@@ -18,7 +20,7 @@ const List = ({ data, titleSection, isDataLoading, error, children }) => {
 
   if (isDataLoading)
     return (
-      <div className={styles.container_spinner} >
+      <div className={styles.container_spinner}>
         <Spinner />
       </div>
     );
