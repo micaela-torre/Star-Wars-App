@@ -18,7 +18,7 @@ export const useDetailsInfo = ({ endpoint }) => {
       } catch (e) {
         console.error(e);
       } finally {
-        // setIsDataLoading(false);
+        setIsDataLoading(false);
       }
     };
     getDetails();

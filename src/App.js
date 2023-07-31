@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <RoutesWithNotFound>
           <Route exact path={PublicRoutes.HOME} element={<Home />} />
-          <Route path={`${PublicRoutes.DETAILS}:section/:id/`} element={<Details />} >
-          <Route path={`${PublicRoutes.DETAILS}:section/:id/:name`} element={<Details />} />
+          <Route path={`${PublicRoutes.DETAILS}:section/:id/`} element={<Details />}>
+            <Route path={PublicRoutes.DETAILS_WITH_NAME} element={<Details />} />
           </Route>
         </RoutesWithNotFound>
       </BrowserRouter>
