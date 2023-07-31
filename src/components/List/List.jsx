@@ -18,12 +18,7 @@ const List = ({ data, titleSection, isDataLoading, error, children }) => {
     navigate(`${PublicRoutes.DETAILS}${section}/${id}/${name}`);
   };
 
-  if (isDataLoading)
-    return (
-      <div className={styles.container_spinner}>
-        <Spinner />
-      </div>
-    );
+  if (isDataLoading) return <Spinner />;
   if (error) return <p>Ha ocurrido un error, intente de nuevo más tarde o contacte a soporte.</p>;
 
   return (

@@ -9,7 +9,7 @@ const Details = () => {
   const { section, id, name } = useParams();
   const endpoint = `${section}/${id}`;
   const { data, isDataLoading } = useDetailsInfo({ endpoint });
-  useSEOHeadData({ title: isDataLoading ? 'Loading..' : name || 'Star Wars' });
+  useSEOHeadData({ title: isDataLoading ? 'Loading..' : name || data?.name });
 
   return (
     <>

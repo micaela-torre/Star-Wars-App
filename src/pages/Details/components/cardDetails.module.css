@@ -25,14 +25,6 @@ div.card_details_photo {
   margin-bottom: 10px;
 }
 
-.container_spinner {
-  min-height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: 1px solid;
-}
-
 @media (min-width: 500px) {
   .card_details_container > * {
     width: 50%;

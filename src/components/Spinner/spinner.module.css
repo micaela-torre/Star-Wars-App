@@ -1,3 +1,11 @@
+.container_spinner {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid;
+}
+
 .force_field .sword {
   transform-style: preserve-3d;
   -webkit-animation: rotate 8000ms linear infinite;
