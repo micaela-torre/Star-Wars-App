@@ -7,7 +7,12 @@ import { formatUrl } from '../../../../utils/functions';
 import ListItem from '../../../../components/List/components/ListItem';
 
 const CardDetails = ({ isDataLoading, data, photo }) => {
-  if (isDataLoading) return <Spinner />;
+  if (isDataLoading)
+    return (
+      <div className={styles.container_spinner}>
+        <Spinner />
+      </div>
+    );
 
   const renderDetail = ({ key, value }) => {
     if (key === 'Residents') {
