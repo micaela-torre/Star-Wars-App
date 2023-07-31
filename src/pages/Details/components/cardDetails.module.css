@@ -25,7 +25,7 @@ div.card_details_photo {
   margin-bottom: 10px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 768px) {
   .card_details_container > * {
     width: 50%;
     min-height: 80vh;
