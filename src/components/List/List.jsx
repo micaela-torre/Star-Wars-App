@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from './components/ListItem';
 import styles from './list.module.css';
 import Spinner from '../Spinner/Spinner';
-import { formatUrl } from '../../utils/functions';
+import { formatUrl } from './utils/list.utils';
 import { useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../../models/routes';
 import { IMAGE_LIST } from '../../constants';
@@ -10,7 +10,7 @@ import { useSEOHeadData } from '../../hooks/useSEOHeadData';
 
 const List = ({ data, titleSection, isDataLoading, error, children }) => {
   const navigate = useNavigate();
-  useSEOHeadData({ title: isDataLoading ? 'Loading...' : 'Welcome' });
+  useSEOHeadData({ title: isDataLoading ? 'Loading...' : 'Home' });
 
   const handlerSeeMoreInfo = (url, name) => {
     if (!url) return null;
