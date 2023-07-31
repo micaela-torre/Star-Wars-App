@@ -1,6 +1,6 @@
-# Prueba-Tecnica-Lisit
+# Star Wars App
  
-Este es un proyecto es una aplicación web desarrollada con React que muestra tres categorías de la serie Star Wars, obtenidos a través de la API (https://swapi.dev/api/). 
+Este es una aplicación web desarrollada con React que muestra tres categorías de la serie Star Wars, obtenidos a través de la API (https://swapi.dev/api/). 
 ### Categorías : 
 - Personajes
 - Planetas
@@ -16,15 +16,21 @@ La aplicación utiliza las siguientes librerías:
 
 ### Características
 - Paginación para cargar más elementos en cada lista.
-- Selección de un elemento de la lista y te muestra la información detallada.
+- Al seleccionar un elemento de la lista muestra la información detallada.
 - Buscador por nombre de cualquier elemento de las listas.
 - Diseño responsive.
+- Implementación de Patrones de diseño (High Order Component y Presentational & Container)
+- Implemantación de Principios SOLID
+- Implementación de Clean Architecture
+- Implementacion de Lazy Loading y Suspense
+- SEO
+  
 
 ## Instalación
 Clona este repositorio en tu máquina local:
 
 ```
-https://github.com/micaela-torre/Prueba-Tecnica-Lisit.git
+https://github.com/micaela-torre/Star-Wars-App.git
 ```
 Instala las dependencias utilizando npm:
 
