@@ -22,7 +22,7 @@ La aplicación utiliza las siguientes librerías:
 - Implementación de Patrones de diseño (High Order Component y Presentational & Container)
 - Implemantación de Principios SOLID
 - Implementación de Clean Architecture
-- Implementacion de Lazy Loading y Suspence
+- Implementacion de Lazy Loading y Suspense
 - SEO
   
 
