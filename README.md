@@ -21,10 +21,15 @@ La aplicación utiliza las siguientes librerías:
 - Diseño responsive.
 - Implementación de Patrones de diseño (High Order Component y Presentational & Container)
 - Implemantación de Principios SOLID
-- Implementación de Clean Architecture
 - Implementacion de Lazy Loading y Suspense
 - SEO
-  
+-  Implementación de Clean Architecture
+    
+## Funcionalidad Destacada:
+La implementación se destaca en la sección "Detalle" al utilizar la recursividad para adaptar la información recibida de la API. Cuando se encuentran URLs para más detalles, la aplicación sigue navegando y consultando datos adicionales para proporcionar una experiencia enriquecida y detallada para el usuario.
+
+### Cómo funciona:
+Mediante una interfaz intuitiva, el usuario puede explorar diversos datos, como películas, planetas, personas y otros elementos de la API. Al hacer clic en los enlaces que contienen información adicional, la aplicación realiza solicitudes a la API para recuperar y presentar más detalles en una vista fluida y cohesionada.
 
 ## Instalación
 Clona este repositorio en tu máquina local:
