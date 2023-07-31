@@ -16,8 +16,16 @@
   padding: 15px 0 0 9px;
   margin: 15px 0 0 15px;
 }
-.text_no_results_found{
+.text_no_results_found {
   text-align: center;
+}
+
+.container_spinner {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid;
 }
 
 @media (min-width: 768px) {

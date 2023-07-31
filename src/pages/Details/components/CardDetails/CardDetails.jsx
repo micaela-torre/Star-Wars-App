@@ -5,7 +5,13 @@ import ListItem from '../../../../components/List/components/ListItem';
 import { RenderDetail } from '../RenderDetail/RenderDetail';
 
 const CardDetails = ({ isDataLoading, data, photo }) => {
-  if (isDataLoading) return <Spinner />;
+  if (isDataLoading)
+    return (
+      <div className={styles.container_spinner}>
+        <Spinner />
+      </div>
+    );
+
   if (!data || !data?.details?.length) return <p style={{ textAlign: 'center' }}>There is no information</p>;
 
   return (

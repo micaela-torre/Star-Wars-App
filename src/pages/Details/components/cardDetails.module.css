@@ -24,15 +24,22 @@ div.card_details_photo {
 .card_details_container p {
   margin-bottom: 10px;
 }
-@media (min-width: 700px) {
+
+.container_spinner {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid;
+}
+
+@media (min-width: 500px) {
   .card_details_container > * {
     width: 50%;
     min-height: 80vh;
   }
 }
-.list_ul ul {
-  margin-left: 17px;
-}
+
 .container_items,
 .container_items > * {
   text-transform: capitalize;

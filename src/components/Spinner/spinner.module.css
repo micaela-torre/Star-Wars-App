@@ -1,26 +1,192 @@
-.spinner {
-  display: flex;
-  width: 100%;
-  height: 80px;
-  justify-content: center;
-  margin: 15px;
+.force_field .sword {
+  transform-style: preserve-3d;
+  -webkit-animation: rotate 8000ms linear infinite;
+  animation: rotate 8000ms linear infinite;
 }
-.spinner:after {
-  content: ' ';
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+.force_field .sword .grip {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 30px;
+  background: #fff;
+  transform-style: preserve-3d;
+  transform: translateX(-50%) translateY(10px);
+  border-radius: 0 0 99px 99px;
 }
-@keyframes lds-dual-ring {
+.force_field .sword .grip::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 30px;
+  background: #aaa;
+  transform: rotateY(-45deg);
+  border-radius: 0 0 99px 99px;
+}
+.force_field .sword .grip::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 50px;
+  background: #ddd;
+  transform: rotateY(45deg);
+  border-radius: 0 0 99px 99px;
+}
+.force_field .sword .beam {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 100px;
+  background: rgba(150, 150, 255, 0.8);
+  transform-style: preserve-3d;
+  transform: translateX(-50%) translateY(-23px);
+  border-radius: 99px 99px 0 0;
+  box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7), -10px -5px 60px 5px #0064ff, -50px 15px 100px 10px rgba(0, 100, 255, 0.7);
+  -webkit-animation: mainBeam 10000ms ease-in-out infinite alternate;
+  animation: mainBeam 10000ms ease-in-out infinite alternate;
+}
+.force_field .sword .beam::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100px;
+  background: rgba(50, 100, 255, 0.8);
+  transform: rotateY(-45deg);
+  border-radius: 99px 99px 0 0;
+  box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7);
+  -webkit-animation: subBeam 10000ms ease-in-out infinite alternate;
+  animation: subBeam 10000ms ease-in-out infinite alternate;
+}
+.force_field .sword .beam::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100px;
+  background: rgba(50, 100, 255, 0.8);
+  transform: rotateY(45deg);
+  border-radius: 99px 99px 0 0;
+  box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7);
+  -webkit-animation: subBeam 10000ms ease-in-out infinite alternate;
+  animation: subBeam 10000ms ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes rotate {
   0% {
-    transform: rotate(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotateX(360deg) rotateY(1080deg) rotateZ(2160deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(1080deg) rotateZ(2160deg);
+  }
+}
+@-webkit-keyframes mainBeam {
+  0% {
+    background: rgba(150, 150, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7), -10px -5px 60px 5px #0064ff, -50px 15px 100px 10px rgba(0, 100, 255, 0.7);
+  }
+  20% {
+    background: rgba(150, 150, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7), -10px -5px 60px 5px #0064ff, -50px 15px 100px 10px rgba(0, 100, 255, 0.7);
+  }
+  30% {
+    background: rgba(150, 255, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.7), -10px -5px 60px 5px #00ff64, -50px 15px 100px 10px rgba(0, 255, 100, 0.7);
+  }
+  70% {
+    background: rgba(150, 255, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.7), -10px -5px 60px 5px #00ff64, -50px 15px 100px 10px rgba(0, 255, 100, 0.7);
+  }
+  80% {
+    background: rgba(250, 150, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.7), -10px -5px 60px 5px #ff0032, -50px 15px 100px 10px rgba(255, 0, 50, 0.7);
+  }
+  100% {
+    background: rgba(250, 150, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.7), -10px -5px 60px 5px #ff0032, -50px 15px 100px 10px rgba(255, 0, 50, 0.7);
+  }
+}
+@keyframes mainBeam {
+  0% {
+    background: rgba(150, 150, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7), -10px -5px 60px 5px #0064ff, -50px 15px 100px 10px rgba(0, 100, 255, 0.7);
+  }
+  20% {
+    background: rgba(150, 150, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.7), -10px -5px 60px 5px #0064ff, -50px 15px 100px 10px rgba(0, 100, 255, 0.7);
+  }
+  30% {
+    background: rgba(150, 255, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.7), -10px -5px 60px 5px #00ff64, -50px 15px 100px 10px rgba(0, 255, 100, 0.7);
+  }
+  70% {
+    background: rgba(150, 255, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.7), -10px -5px 60px 5px #00ff64, -50px 15px 100px 10px rgba(0, 255, 100, 0.7);
+  }
+  80% {
+    background: rgba(250, 150, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.7), -10px -5px 60px 5px #ff0032, -50px 15px 100px 10px rgba(255, 0, 50, 0.7);
+  }
+  100% {
+    background: rgba(250, 150, 150, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.7), -10px -5px 60px 5px #ff0032, -50px 15px 100px 10px rgba(255, 0, 50, 0.7);
+  }
+}
+@-webkit-keyframes subBeam {
+  0% {
+    background: rgba(50, 100, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.5);
+  }
+  20% {
+    background: rgba(50, 100, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.5);
+  }
+  30% {
+    background: rgba(50, 255, 100, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.5);
+  }
+  70% {
+    background: rgba(50, 255, 100, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.5);
+  }
+  80% {
+    background: rgba(255, 100, 50, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.5);
+  }
+  100% {
+    background: rgba(255, 100, 50, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.5);
+  }
+}
+@keyframes subBeam {
+  0% {
+    background: rgba(50, 100, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.5);
+  }
+  20% {
+    background: rgba(50, 100, 255, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 100, 255, 0.5);
+  }
+  30% {
+    background: rgba(50, 255, 100, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.5);
+  }
+  70% {
+    background: rgba(50, 255, 100, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(0, 255, 100, 0.5);
+  }
+  80% {
+    background: rgba(255, 100, 50, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.5);
+  }
+  100% {
+    background: rgba(255, 100, 50, 0.8);
+    box-shadow: 0 -5px 30px 5px rgba(255, 0, 50, 0.5);
   }
 }

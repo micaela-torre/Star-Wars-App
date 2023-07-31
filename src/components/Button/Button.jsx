@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styles from './Button.module.css';
+import styles from './button.module.css';
 import { AiOutlineLoading } from 'react-icons/ai';
 
 const Button = ({ children, variant = 'primary', onClick, selected, customClasss, sx, disabled = false, loading = false, toolTip = '' }) => {

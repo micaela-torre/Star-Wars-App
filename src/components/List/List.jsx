@@ -6,9 +6,11 @@ import { formatUrl } from '../../utils/functions';
 import { useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../../models/routes';
 import { IMAGE_LIST } from '../../constants';
+import { useSEOHeadData } from '../../hooks/useSEOHeadData';
 
 const List = ({ data, titleSection, isDataLoading, error, children }) => {
   const navigate = useNavigate();
+  useSEOHeadData({ title: isDataLoading ? 'Loading...' : 'Welcome' });
 
   const handlerSeeMoreInfo = (url, name) => {
     if (!url) return null;
@@ -16,7 +18,12 @@ const List = ({ data, titleSection, isDataLoading, error, children }) => {
     navigate(`${PublicRoutes.DETAILS}${section}/${id}/${name}`);
   };
 
-  if (isDataLoading) return <Spinner />;
+  if (isDataLoading)
+    return (
+      <div className={styles.container_spinner}>
+        <Spinner />
+      </div>
+    );
   if (error) return <p>Ha ocurrido un error, intente de nuevo más tarde o contacte a soporte.</p>;
 
   return (

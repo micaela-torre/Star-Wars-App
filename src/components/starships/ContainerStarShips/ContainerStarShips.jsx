@@ -1,11 +1,11 @@
 import List from '../../List/List';
 import { useDataList } from '../../List/hooks/useDataList';
 import Paginator from '../../Paginator/Paginator';
-import { VehicleCategoriesServices } from '../services/vehicles.services';
+import { StarShipsServices } from '../services/starships.services';
 
-const ContainerVehicles = ({ titleSection, initialPage = 1, amountToShow }) => {
+const ContainerStarShips = ({ titleSection, initialPage = 1, amountToShow }) => {
   const { isDataLoading, list, setPage, page, error, handleCardCountChange, count } = useDataList({
-    service: VehicleCategoriesServices.getVehicle,
+    service: StarShipsServices.getVehicle,
     initialPage,
   });
 
@@ -25,4 +25,4 @@ const ContainerVehicles = ({ titleSection, initialPage = 1, amountToShow }) => {
   );
 };
 
-export default ContainerVehicles;
+export default ContainerStarShips;

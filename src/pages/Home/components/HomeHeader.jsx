@@ -6,7 +6,7 @@ const HomeHeader = () => {
     <nav>
       <a href="#Characters">characters</a>
       <a href="#Planets">planets</a>
-      <a href="#Vehicles">vehicles</a>
+      <a href="#Starships">starships</a>
     </nav>
   );
 };
