@@ -1,8 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../../../models/routes';
-import { useEffect } from 'react';
-
 export const useHandleInput = ({ handleChangeSearch }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,8 +13,12 @@ export const useHandleInput = ({ handleChangeSearch }) => {
 
   const handleChange = e => {
     const { value } = e.target;
-    setValue(value);
-    if (handleChangeSearch) handleChangeSearch(e);
+
+    if (searchParams && !e.target.value) clearValue();
+
+    if (handleChangeSearch) {
+      handleChangeSearch(e);
+    } else setValue(value);
   };
 
   const handleSubmit = () => {
@@ -26,8 +28,6 @@ export const useHandleInput = ({ handleChangeSearch }) => {
   const handleKeyPress = e => {
     if (e.key === 'Enter' && value.trim()) navigateToList();
   };
-  useEffect(() => {
-    setValue(searchParams || '');
-  }, [searchParams]);
+
   return { handleChange, handleSubmit, handleKeyPress, value, searchParams, clearValue };
 };
