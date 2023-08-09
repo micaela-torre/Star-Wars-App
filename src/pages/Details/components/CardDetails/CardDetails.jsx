@@ -14,7 +14,7 @@ const CardDetails = ({ isDataLoading, data, photo }) => {
         <div className={styles.container_items}>
           {data?.details?.map((item, index) => (
             <div key={`CardDetails_${index}`}>
-              <h4>{item.label || ''}</h4> : {RenderDetail(item)}
+              <h4>{item.label || ''}:</h4> {RenderDetail(item)}
             </div>
           ))}
         </div>

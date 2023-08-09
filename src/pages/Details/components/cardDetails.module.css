@@ -52,7 +52,7 @@ div.card_details_photo {
   padding: 10px 0;
 }
 .container_items > div > * {
-  padding: 0 10px 0 10px;
+  padding-left: 4px;
 }
 
 .container_items > div > ul > li {
